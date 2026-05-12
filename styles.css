@@ -1,0 +1,400 @@
+:root {
+  color-scheme: dark;
+  --bg: #07070d;
+  --bg-strong: #030306;
+  --text: #f8f1dc;
+  --muted: #c7bfa8;
+  --gold: #d7b568;
+  --gold-soft: rgba(215, 181, 104, 0.18);
+  --purple: #7b4dff;
+  --purple-soft: rgba(123, 77, 255, 0.24);
+  --line: rgba(248, 241, 220, 0.16);
+  --panel: rgba(12, 12, 19, 0.84);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 12% 18%, var(--purple-soft), transparent 24rem),
+    linear-gradient(180deg, var(--bg-strong), var(--bg) 42%, #0c0714);
+  color: var(--text);
+  font-family:
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Noto Sans SC",
+    Arial,
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem clamp(1rem, 4vw, 3.75rem);
+  border-bottom: 1px solid var(--line);
+  background: rgba(3, 3, 6, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  color: var(--gold);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 2rem);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.nav-links a {
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 92svh;
+  overflow: hidden;
+  align-items: end;
+  padding: 8.5rem clamp(1rem, 5vw, 4.5rem) 5rem;
+  background-image: url("assets/champions-2023-poster.png");
+  background-position: center 38%;
+  background-size: cover;
+}
+
+.hero::after {
+  position: absolute;
+  right: clamp(1rem, 4vw, 3.75rem);
+  bottom: 1.35rem;
+  width: min(34rem, 44vw);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(215, 181, 104, 0.82));
+  content: "";
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 3, 6, 0.92), rgba(3, 3, 6, 0.46) 48%, rgba(3, 3, 6, 0.72)),
+    linear-gradient(0deg, rgba(3, 3, 6, 0.95), transparent 46%, rgba(3, 3, 6, 0.42));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(49rem, 100%);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--gold);
+  font-size: clamp(0.74rem, 2vw, 0.86rem);
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 11ch;
+  margin-bottom: 1.25rem;
+  font-size: clamp(3.8rem, 13vw, 9.5rem);
+  line-height: 0.86;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-shadow: 0 0 36px rgba(123, 77, 255, 0.4);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 0.7rem;
+  color: var(--text);
+  font-size: 1.28rem;
+}
+
+.hero-copy {
+  width: min(37rem, 100%);
+  margin-bottom: 2rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.primary-link,
+.ghost-link {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--gold);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.primary-link {
+  background: var(--gold);
+  color: #100b07;
+}
+
+.ghost-link {
+  background: rgba(3, 3, 6, 0.35);
+  color: var(--gold);
+}
+
+.info-band,
+.road-section,
+.poster-section {
+  padding: clamp(3.5rem, 8vw, 7rem) clamp(1rem, 5vw, 4.5rem);
+}
+
+.section-heading {
+  width: min(64rem, 100%);
+  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
+}
+
+.stats-grid {
+  display: grid;
+  width: min(72rem, 100%);
+  margin: 0 auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  background: rgba(248, 241, 220, 0.04);
+}
+
+.stat-card {
+  min-height: 9.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-right: 1px solid var(--line);
+}
+
+.stat-card:last-child {
+  border-right: 0;
+}
+
+.stat-card span {
+  display: block;
+  margin-bottom: 0.9rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.stat-card strong {
+  color: var(--gold);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  line-height: 1.08;
+}
+
+.poster-section {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 0.8fr) minmax(17rem, 0.72fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  background:
+    linear-gradient(180deg, rgba(215, 181, 104, 0.08), rgba(123, 77, 255, 0.08)),
+    #08080f;
+}
+
+.poster-copy {
+  width: min(40rem, 100%);
+}
+
+.poster-copy p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+.poster-frame {
+  position: relative;
+  margin: 0;
+  justify-self: center;
+}
+
+.poster-frame::before {
+  position: absolute;
+  inset: -0.9rem;
+  border: 1px solid rgba(215, 181, 104, 0.48);
+  content: "";
+}
+
+.poster-frame img {
+  position: relative;
+  display: block;
+  width: min(100%, 28rem);
+  max-height: 82svh;
+  object-fit: contain;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+}
+
+.road-section {
+  background:
+    linear-gradient(180deg, transparent, rgba(215, 181, 104, 0.07)),
+    var(--bg);
+}
+
+.road-list {
+  display: grid;
+  width: min(72rem, 100%);
+  margin: 0 auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.road-list article {
+  min-height: 17rem;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.road-list span {
+  display: inline-block;
+  margin-bottom: 3rem;
+  color: var(--gold);
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.road-list p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.road-list p + p {
+  margin-top: 0.75rem;
+}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem clamp(1rem, 5vw, 4.5rem);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.86rem;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    position: absolute;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .hero {
+    min-height: 91svh;
+    padding-top: 7.5rem;
+    background-position: center top;
+  }
+
+  .hero-shade {
+    background:
+      linear-gradient(90deg, rgba(3, 3, 6, 0.85), rgba(3, 3, 6, 0.42)),
+      linear-gradient(0deg, rgba(3, 3, 6, 0.96), transparent 58%, rgba(3, 3, 6, 0.24));
+  }
+
+  .stats-grid,
+  .poster-section,
+  .road-list {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    min-height: 7.5rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stat-card:last-child {
+    border-bottom: 0;
+  }
+
+  .poster-section {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero {
+    min-height: 90svh;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-actions a {
+    width: 100%;
+  }
+
+  .poster-frame::before {
+    inset: -0.5rem;
+  }
+}
